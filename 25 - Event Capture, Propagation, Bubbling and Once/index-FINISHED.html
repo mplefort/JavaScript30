@@ -48,19 +48,19 @@
 
   function logText(e) {
     console.log(this.classList.value);
-    // e.stopPropagation(); // stop bubbling!
-    // console.log(this);
+    e.stopPropagation(); // stop bubbling!
+    console.log(this);
   }
 
   divs.forEach(div => div.addEventListener('click', logText, {
-    capture: false,
-    once: true
+    capture: false,  // if true fire function on way down, false to fire on way up (bubbling)
+    once: true  // only listen for event once. Remove event listener after first click
   }));
 
   button.addEventListener('click', () => {
     console.log('Click!!!');
   }, {
-    once: true
+    once: true  // only listen for event once. Remove event listener after first click
   });
 
 </script>
